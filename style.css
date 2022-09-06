@@ -1,0 +1,39 @@
+h1 {
+    text-align: center;
+}
+#calculator {
+    margin-left: auto;
+    margin-right: auto;
+    width: 400px;
+    height: 500px;
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+}
+#display {
+    flex: 1;
+}
+#buttons {
+    flex: 2;
+    display: flex;
+}
+#numberpad {
+    border: 1px solid black;
+    display: flex;
+    flex: 3;
+    flex-wrap: wrap;
+}
+#operatorspad {
+    border: 1px solid black;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
+.operators {
+    flex: 1;
+}
+.numbers {
+    flex: 1;
+    min-height: 60px;
+    min-width: 60px;
+}
