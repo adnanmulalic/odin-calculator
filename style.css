@@ -12,10 +12,17 @@ h1 {
 }
 #display {
     flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#display-value {
+    font-size: 4em;
 }
 #buttons {
     flex: 2;
     display: flex;
+    border-top: 2px solid black;
 }
 #numberpad {
     border: 1px solid black;
@@ -33,7 +40,11 @@ h1 {
     flex: 1;
 }
 .numbers {
+    padding: 0;
     flex: 1;
     min-height: 60px;
-    min-width: 60px;
+    min-width: 70px;
+}
+.numbers:last-child {
+    min-width: 148.50px;
 }
