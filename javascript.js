@@ -35,22 +35,29 @@ let displayValue = document.querySelector("#display-value");
 const equalsBtn = document.querySelector("#equals");
 const buttons = document.querySelectorAll("#buttons");
 const numbers = document.querySelectorAll(".numbers");
-const operators = document.querySelectorAll(".operators:not(#equals)");
+const operators = document.querySelectorAll(".operators"); //(".operators:not(#equals)")
 let result = 0;
 
 
 operators.forEach(operator => {
     operator.addEventListener("click", () => {
+        if (operator.id === "equals") {
+            number2 = currentNumber;
+            currentNumber = displayValue.innerHTML = operate(currentOperator, parseInt(number1), parseInt(number2));
+        } else {
         currentOperator = operator.innerHTML;
         number1 = currentNumber;
         currentNumber = "";
+        }
     })
 })
 
-equalsBtn.addEventListener("click", () => {
+/* equalsBtn.addEventListener("click", () => {
     number2 = currentNumber;
-    displayValue = operate(currentOperator, number1, number2);
-})
+    currentNumber = displayValue.innerHTML = operate(currentOperator, parseInt(number1), parseInt(number2)); */
+
+
+//})
 
 numbers.forEach(number => {
     number.addEventListener("click", () => {
@@ -71,3 +78,10 @@ numbers.forEach(number => {
         }
     })
 });
+
+/* else if (currentOperator != null) {
+    number2 = currentNumber;
+    currentNumber = displayValue.innerHTML = operate(currentOperator, parseInt(number1), parseInt(number2));
+    currentOperator = operator.innerHTML;
+    number1 = currentNumber;
+    number2 = ""; */
