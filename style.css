@@ -15,6 +15,8 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow-y: hidden;
+    overflow-x: auto;
 }
 #display-value {
     font-size: 4em;
@@ -37,14 +39,13 @@ h1 {
     flex-direction: column;
 }
 .operators {
+    font-size: 1.5em;
     flex: 1;
 }
 .numbers {
+    font-size: 1em;
     padding: 0;
     flex: 1;
     min-height: 60px;
     min-width: 70px;
-}
-.numbers:last-child {
-    min-width: 148.50px;
 }
