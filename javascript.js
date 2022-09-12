@@ -71,7 +71,11 @@ operators.forEach(operator => {
 
 numbers.forEach(number => {
     number.addEventListener("click", () => {
-        if (number.id === "clear") {
+        if (number.id === "delete") {
+            displayValue.innerHTML = displayValue.innerHTML.slice(0, displayValue.innerHTML.length - 1);
+            currentNumber = displayValue.innerHTML;
+        }
+        else if (number.id === "clear") {
             displayValue.innerHTML = 0;
             currentNumber = "";
             number1 = "";
