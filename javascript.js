@@ -35,15 +35,18 @@ let displayValue = document.querySelector("#display-value");
 const equalsBtn = document.querySelector("#equals");
 const buttons = document.querySelectorAll("#buttons");
 const numbers = document.querySelectorAll(".numbers");
-const operators = document.querySelectorAll(".operators:not(#equals)"); //(".operators:not(#equals)")
-let result = "";
-
+const operators = document.querySelectorAll(".operators:not(#equals)");
 
 operators.forEach(operator => {
     operator.addEventListener("click", () => {
         if (number1 != "" && currentNumber != "") {
             number2 = currentNumber;
-            displayValue.innerHTML = operate(currentOperator, parseInt(number1), parseInt(number2));
+            currentNumber = operate(currentOperator, parseFloat(number1), parseFloat(number2)).toFixed(2);
+            if (currentNumber.slice(currentNumber.length - 2, currentNumber.length) === "00") {
+                displayValue.innerHTML = parseInt(currentNumber);
+            } else {
+                displayValue.innerHTML = currentNumber;
+            }
             number1 = displayValue.innerHTML;
             currentOperator = operator.innerHTML;
             currentNumber = "";
@@ -62,10 +65,13 @@ operators.forEach(operator => {
 
  equalsBtn.addEventListener("click", () => {
     number2 = currentNumber;
-    currentNumber = displayValue.innerHTML = operate(currentOperator, parseInt(number1), parseInt(number2));
-    //number1 = displayValue.innerHTML;
+    currentNumber = operate(currentOperator, parseFloat(number1), parseFloat(number2)).toFixed(2);
+    if (currentNumber.slice(currentNumber.length - 2, currentNumber.length) === "00") {
+        displayValue.innerHTML = parseInt(currentNumber);
+    } else {
+        displayValue.innerHTML = currentNumber;
+    }
     number1 = "";
-    //currentNumber = "";
     
 })
 
@@ -97,10 +103,3 @@ numbers.forEach(number => {
         }
     })
 });
-
-/* else if (currentOperator != null) {
-    number2 = currentNumber;
-    currentNumber = displayValue.innerHTML = operate(currentOperator, parseInt(number1), parseInt(number2));
-    currentOperator = operator.innerHTML;
-    number1 = currentNumber;
-    number2 = ""; */
