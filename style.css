@@ -1,4 +1,4 @@
-h1 {
+ h1 {
     text-align: center;
 }
 #calculator {
@@ -6,17 +6,16 @@ h1 {
     margin-right: auto;
     width: 400px;
     height: 500px;
-    border: 2px solid black;
+    border: 4px solid black;
     display: flex;
     flex-direction: column;
 }
 #display {
     flex: 1;
     display: flex;
-    justify-content: center;
+    justify-content: right;
     align-items: center;
-    overflow-y: hidden;
-    overflow-x: auto;
+    overflow: auto;
 }
 #display-value {
     font-size: 4em;
@@ -41,11 +40,12 @@ h1 {
 .operators {
     font-size: 1.5em;
     flex: 1;
+    background-color: orange;
 }
 .numbers {
     font-size: 1em;
     padding: 0;
     flex: 1;
     min-height: 60px;
-    min-width: 70px;
+    min-width: 90px;
 }
